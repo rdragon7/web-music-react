@@ -1,70 +1,59 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 项目
 
-## Available Scripts
+    本项目为：模仿网页版网易云音乐
+    后台接口由网络一位大神提供：https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3
 
-In the project directory, you can run:
+# 项目技术栈
 
-### `npm start`
+  1.函数式组件、react hooks
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  2.redux、react-redux、redux-thunk
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  3.react-router(6)
 
-### `npm test`
+  4.styled-components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  5.AntDesign
 
-### `npm run build`
+# 项目规范
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  1.文件夹、文件名称统一采用小写，多个单词使用（-）连接
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  2.变量名采用"小驼峰"标识，常量全部使用大写，组件采用"大驼峰"标识
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  3.css采用 普通css 结合 styled-components
 
-### `npm run eject`
+  4.整个项目使用函数式组件，全面使用react hook
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  5.所有的函数式组件，为了避免不必要的渲染，全部采用memo进行包裹
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  6.组件内部的状态可以使用useState进行管理，业务数据全部放在redux中进行管理
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  7.函数组件内部代码书写顺序
+      组件内部状态和props
+      redux hooks
+      其他 hooks
+      其他逻辑代码
+      返回JSX
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  8.redux项目规范
+      每个模块有自己独立的reducer，通过combineReducer进行合并；
+      异步请求代码使用redux-thunk，并且写在actionCreators中； 
+      redux直接采用redux hooks方式编写，不再使用connect；
 
-## Learn More
+  9.网络请求规范
+      网络请求采用axios
+      对axios进行二次封装（以后如果axios不再维护或出现问题，可以只在一处对axios进行修改，不用再在每个使用axios的组件内部修改，增加可维护性）
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  10.路由规范
+      本项目采用react-router(6)版本，（router6版本相较于5版本有较大改动）
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  11.本项目部分组件采用AntDesign库中提供的组件
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  12.组件内部导入模块顺序
+      内置模块
+      功能性文件
+      组件（先第三方组件，再自己项目中的组件）
+      内部样式文件   
