@@ -11,7 +11,8 @@ import {
 import { getSizeImage, formatMinuteSecond, getPlayUrl } from '@/utils/format-data';
 
 import { Slider } from 'antd';
-import ZLPlayerMessage from '../c-cpn/player-message';
+import ZLPlayerMessage from '../player-message';
+import ZLPlayerPanel from '../player-panel';
 import { 
   AppPlayerBarWrapper, 
   Control, 
@@ -33,6 +34,8 @@ export default memo(function ZLAppPlayerBar() {
   const [isPlay,setIsPlay] = useState(false);
   // 保存歌词
   const [lyricContent,setLyricContent] = useState("");
+  // 控制歌曲列表是否显示
+  const [showPanel,setShowPanel] = useState(false);
 
   // redux hooks
   const dispatch = useDispatch();
@@ -173,7 +176,7 @@ export default memo(function ZLAppPlayerBar() {
           <div className="right sprite_playbar">
             <button className="sprite_playbar btn volume"></button>
             <button className="sprite_playbar btn loop" onClick={() => handleSequence()}></button>
-            <button className="sprite_playbar btn playlist">{playList.length}</button>
+            <button className="sprite_playbar btn playlist" onClick={() => setShowPanel(!showPanel)}>{playList.length}</button>
           </div>
         </Operator>
       </div>
@@ -181,7 +184,9 @@ export default memo(function ZLAppPlayerBar() {
       {
         lyricContent ? <ZLPlayerMessage info={lyricContent} /> : "" 
       }
-      
+      {
+        showPanel && <ZLPlayerPanel />
+      }
     </AppPlayerBarWrapper>
   )
 })
