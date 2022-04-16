@@ -7,6 +7,7 @@ import store from './store';
 
 import ZLAppHeader from '@/components/app-header';
 import ZLAppFooter from '@/components/app-footer';
+import ZLAppPlayerBar from './pages/player/app-player-bar';
 
 function AppRoutes() {
   const element = useRoutes(routes);
@@ -21,6 +22,7 @@ export default memo(function App() {
           <AppRoutes />
         </Suspense>
         <ZLAppFooter />
+        <ZLAppPlayerBar />
       </BrowserRouter>
     </Provider>
     

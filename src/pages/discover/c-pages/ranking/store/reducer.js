@@ -3,7 +3,7 @@ import {
   CHANGE_PLAT_LIST,
   CHANGE_CURRENT_INDEX,
   CHANGE_RANKING_COMMENT,
-  CHANGE_CURRENT_PAGE 
+  CHANGE_CUR_PAGE 
 } from './constants';
 
 const defaultState = {
@@ -11,7 +11,7 @@ const defaultState = {
   currentIndex: 0,
   playList: {},
   rankingComment: {},
-  currentPage: 1
+  curPage: 1
 }
 
 function reducer(preState = defaultState,action) {
@@ -25,8 +25,8 @@ function reducer(preState = defaultState,action) {
       return {...preState,playList: data}
     case CHANGE_RANKING_COMMENT:
       return {...preState,rankingComment: data}
-    case CHANGE_CURRENT_PAGE:
-      return {...preState,currentPage: data}
+    case CHANGE_CUR_PAGE:
+      return {...preState,curPage: data}
     default:
       return preState  
   }

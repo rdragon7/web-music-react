@@ -6,7 +6,7 @@ import {
   getPlayListAction, 
   changeCurrentIndexAction,
   getRankingCommentAction,
-  changeCurrentPageAction 
+  changeCurPageAction 
 } from '../../store/action';
 import { getSizeImage } from '@/utils/format-data';
 import { COMMENT_PAGE_SIZE } from '@/common/constants';
@@ -38,7 +38,7 @@ export default memo(function ZLTopRanking(props) {
   // 业务逻辑
   const handleItemClick = (index) => {
     dispatch(changeCurrentIndexAction(index));
-    dispatch(changeCurrentPageAction(1));
+    dispatch(changeCurPageAction(1));
     const id = topList[currentIndex].id;
     dispatch(getPlayListAction(id));
   }

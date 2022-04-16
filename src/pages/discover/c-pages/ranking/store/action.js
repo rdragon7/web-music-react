@@ -3,15 +3,16 @@ import {
   CHANGE_PLAT_LIST,
   CHANGE_CURRENT_INDEX,
   CHANGE_RANKING_COMMENT,
-  CHANGE_CURRENT_PAGE 
+  CHANGE_CUR_PAGE 
 } from './constants';
+
 import { getTopList, getPlayList, getRankingComment } from '@/api/ranking';
 
 export const changeTopListAction = data => ({type: CHANGE_TOP_LIST,data});
 export const changeCurrentIndexAction = data => ({type: CHANGE_CURRENT_INDEX,data});
 export const changePlayListAction = data => ({type: CHANGE_PLAT_LIST,data});
 export const changeRankingCommentAction = data => ({type: CHANGE_RANKING_COMMENT,data});
-export const changeCurrentPageAction = data => ({type: CHANGE_CURRENT_PAGE,data});
+export const changeCurPageAction = data => ({type: CHANGE_CUR_PAGE,data});
 
 export const getTopListAction = () => {
   return dispatch => {

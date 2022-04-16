@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { getSizeImage } from '@/utils/format-data';
+import { getCurrentSongAction } from '@/pages/player/store/action';
 
 import { TopRankingWrapper } from './style';
 
@@ -9,10 +11,15 @@ export default memo(function ZLTopRanking(props) {
   const { info = [] } = props;
 
   // redux hooks
+  const dispatch = useDispatch();
 
   // other hooks
 
   // 业务逻辑
+  // 点击播放歌曲
+  const handleClick = (item) => {
+    dispatch(getCurrentSongAction(item.id));
+  }
   
   return (
     <TopRankingWrapper>
@@ -38,7 +45,7 @@ export default memo(function ZLTopRanking(props) {
                 <div className="info">
                   <span className="name text-nowrap">{item.name}</span>
                   <div className="operate">
-                    <button className="btn sprite_02 play"></button>
+                    <button className="btn sprite_02 play" onClick={() => handleClick(item)}></button>
                     <button className="btn sprite_icon2 add"></button>
                     <button className="btn sprite_02 favor"></button>
                   </div>

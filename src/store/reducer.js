@@ -6,6 +6,7 @@ import { reducer as songReducer} from '@/pages/discover/c-pages/song/store';
 import { reducer as radioReducer } from '@/pages/discover/c-pages/radio/store';
 import { reducer as artistReducer } from '@/pages/discover/c-pages/artist/store';
 import { reducer as albumReducer } from '@/pages/discover/c-pages/album/store';
+import { reducer as playerReducer } from '@/pages/player/store';
 
 const reducer = combineReducers({
   recommend: recommendReducer,
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   song: songReducer,
   radio: radioReducer,
   artist: artistReducer,
-  album: albumReducer
+  album: albumReducer,
+  player: playerReducer
 })
 
 export default reducer;
