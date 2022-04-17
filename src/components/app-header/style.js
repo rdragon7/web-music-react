@@ -64,6 +64,7 @@ export const AppHeaderWrapper = styled.div`
     }
     /* 头部 - 右边区域 */
     .right {
+      position: relative;
       display: flex;
       align-items: center;
       color: #ccc;
