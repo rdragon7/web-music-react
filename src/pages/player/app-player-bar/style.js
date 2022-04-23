@@ -85,25 +85,25 @@ export const PlayInfo = styled.div`
     .progress {
       display: flex;
       align-items: center;
+      /* 重置antd中进度条样式 */
       .ant-slider {
         width: 493px;
         margin-right: 10px;
-      }
-      /* 重置antd中进度条样式 */
-      .ant-slider-rail {
-        height: 9px;
-        background: url(${require("@/assets/img/progress_bar.png")}) right 0;
-      }
-      .ant-slider-track {
-        height: 9px;
-        background: url(${require("@/assets/img/progress_bar.png")}) left -66px;
-      }
-      .ant-slider-handle {
-        width: 22px;
-        height: 24px;
-        border: none;
-        margin-top: -7px;
-        background: url(${require("@/assets/img/sprite_icon.png")}) 0 -250px;
+        .ant-slider-rail {
+          height: 9px;
+          background: url(${require("@/assets/img/progress_bar.png")}) right 0;
+        }
+        .ant-slider-track {
+          height: 9px;
+          background: url(${require("@/assets/img/progress_bar.png")}) left -66px;
+        }
+        .ant-slider-handle {
+          width: 22px;
+          height: 24px;
+          border: none;
+          margin-top: -7px;
+          background: url(${require("@/assets/img/sprite_icon.png")}) 0 -250px;
+        }
       }
       /* 歌曲时间 */
       .time {

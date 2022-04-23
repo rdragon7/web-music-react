@@ -13,6 +13,7 @@ import { getSizeImage, formatMinuteSecond, getPlayUrl } from '@/utils/format-dat
 import { Slider } from 'antd';
 import ZLPlayerMessage from '../player-message';
 import ZLPlayerPanel from '../player-panel';
+import ZLPlayerVolume from '../player-volume';
 import { 
   AppPlayerBarWrapper, 
   Control, 
@@ -36,6 +37,10 @@ export default memo(function ZLAppPlayerBar() {
   const [lyricContent,setLyricContent] = useState("");
   // 控制歌曲列表是否显示
   const [showPanel,setShowPanel] = useState(false);
+  // 控制音量进度条是否显示
+  const [showVolume,setShowVolume] = useState(false);
+  // 控制音量
+  const [volume,setVolume] = useState(0.5);
 
   // redux hooks
   const dispatch = useDispatch();
@@ -70,6 +75,7 @@ export default memo(function ZLAppPlayerBar() {
   const playMusic = () => {
     isPlay ? playRef.current.pause() : playRef.current.play(); 
     setIsPlay(!isPlay);
+    playRef.current.volume = volume;
   }
 
   // 当歌曲时间改变触发
@@ -96,6 +102,8 @@ export default memo(function ZLAppPlayerBar() {
       const content = lyricList[finalIndex] && lyricList[finalIndex].content;
       setLyricContent(content);
     }
+    // 控制音量
+    playRef.current.volume = volume;
   }
 
   // slider值改变时触发
@@ -139,6 +147,11 @@ export default memo(function ZLAppPlayerBar() {
     }
   }
 
+  // 改变音量
+  const volumeClick = (value) => {
+    setVolume(value);
+  }
+
   return (
     <AppPlayerBarWrapper className="sprite_playbar">
       <div className="content wrap-v2">
@@ -174,7 +187,7 @@ export default memo(function ZLAppPlayerBar() {
             <button className="sprite_playbar btn share"></button>
           </div>
           <div className="right sprite_playbar">
-            <button className="sprite_playbar btn volume"></button>
+            <button className="sprite_playbar btn volume" onClick={() => setShowVolume(!showVolume)}></button>
             <button className="sprite_playbar btn loop" onClick={() => handleSequence()}></button>
             <button className="sprite_playbar btn playlist" onClick={() => setShowPanel(!showPanel)}>{playList.length}</button>
           </div>
@@ -186,6 +199,9 @@ export default memo(function ZLAppPlayerBar() {
       }
       {
         showPanel && <ZLPlayerPanel />
+      }
+      {
+        showVolume && <ZLPlayerVolume volumeClick={(value) => volumeClick(value)} volume={volume} />
       }
     </AppPlayerBarWrapper>
   )
