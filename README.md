@@ -3,7 +3,7 @@
 # 项目
 
     本项目为：模仿网页版网易云音乐
-    后台接口由网络一位大神提供：https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3
+    后台接口由网络提供：https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3
 
 # 项目技术栈
 
